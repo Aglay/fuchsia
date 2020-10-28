@@ -26,6 +26,10 @@ source_set("kernel") {
     "wait.cc",
   ]
 
+  if (enable_kernel_csan) {
+    sources += [ "csan.cc" ]
+  }
+
   deps = [
     ":tests",
     "//zircon/kernel/dev/interrupt",
